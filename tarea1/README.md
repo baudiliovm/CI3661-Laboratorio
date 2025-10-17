@@ -6,53 +6,41 @@ Proyecto con la solución de la "Tarea 1" (implementaciones en Haskell) y prueba
 
 ## Estructura de archivos
 
-- `Makefile` — tareas de compilación / ejecución.
-- `package.yaml`, `stack.yaml`, `tarea1.cabal` — configuración de Stack/Cabal.
-- `src/`
-  - `Tarea1.hs` — implementaciones de las funciones de la tarea.
-  - `Main.hs` — (opcional) ejecutable del proyecto si existe.
-- `test/`
-  - `Test.hs` — pruebas unitarias (usa `Test.HUnit`).
-- `.stack-work/` — artefactos generados por Stack (no tocar).
-- `README.md` — este archivo.
+```text
+Proyecto (raíz)
+├─ Makefile                       # tareas de compilación / ejecución
+├─ package.yaml                   # configuración de Stack/Cabal
+├─ stack.yaml
+├─ tarea1.cabal
+├─ src/
+│  ├─ Tarea1.hs                   # implementaciones de la tarea
+│  └─ Main.hs                      # (opcional) ejecutable
+├─ test/
+│  └─ Test.hs                      # pruebas unitarias (Test.HUnit)
+├─ .stack-work/                    # artefactos generados por Stack (no tocar)
+└─ README.md                       # este archivo
+```
 
-## Cómo compilar y ejecutar (forma simple)
+## Cómo compilar y ejecutar
 
 Abre una terminal y sitúate en el directorio del proyecto:
 
-```bash
-cd /home/bau/Documents/USB/SepDic25/Lenguajes/Laboratorio/tarea1
-```
-
 ### Usando el Makefile (recomendado)
 
-- Compilar:
-
 ```bash
+# Compilar:
 make
-```
 
-- Compilar y ejecutar tests:
-
-```bash
+# Compilar y ejecutar tests:
 make run
-```
 
-- Ejecutar el binario ya compilado:
-
-```bash
+# Ejecutar el binario ya compilado:
 ./Test
-```
 
-- Abrir REPL (GHCi) con `src` en el path:
-
-```bash
+# Abrir REPL (GHCi) con `src` en el path:
 make repl
-```
 
-- Limpiar artefactos:
-
-```bash
+# Limpiar artefactos:
 make clean
 ```
 
