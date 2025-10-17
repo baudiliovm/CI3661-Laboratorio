@@ -1,4 +1,4 @@
-% Tarea1 — Laboratorio de Lenguajes de Programación I
+# Tarea1 — Laboratorio de Lenguajes de Programación I
 
 ## Resumen
 
