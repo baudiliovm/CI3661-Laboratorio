@@ -41,29 +41,3 @@ stack build            # resuelve dependencias y compila
 stack ghc -- --make test/Test.hs -i src -o Test
 ./Test
 ```
-
-## Notas y solución de problemas
-
-- Si al compilar faltan módulos estándar (Prelude / Data.Char) puede ser por un package environment corrupto. Como prueba rápida:
-
-```bash
-ghc --make test/Test.hs -i src -o Test -package-env=-
-```
-
-- Si `Test.HUnit` no se encuentra, asegúrate de que `HUnit` está en `package.yaml` y ejecuta `stack build`.
-
-## Qué contiene `src/Tarea1.hs`
-
-Funciones implementadas (ejemplos):
-
-- `esPalindromo :: String -> Bool`
-- `productoParesRec :: [Integer] -> Integer`
-- `parsearCondicional :: [String] -> [Either String Int]`
-- `sumaAcumuladaCondicional :: Float -> [Float] -> Float`
-- `coordenadasImpares :: Int -> [(Int,Int)]`
-- `descomponerListaSegura :: [a] -> Maybe (a,[a])`
-
-## Qué contiene `test/Test.hs`
-
-- Pruebas unitarias con HUnit que importan `Tarea1`.
-- Ejecutar `./Test` muestra los resultados de las pruebas.
