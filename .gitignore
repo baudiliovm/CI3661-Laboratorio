@@ -10,6 +10,7 @@ dist-*/
 dist-newstyle/
 cabal.sandbox.config
 cabal.project.local
+*.cabal
 
 # GHC environment files
 .ghc.environment.*

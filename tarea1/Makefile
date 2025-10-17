@@ -1,4 +1,4 @@
-.PHONY: all build run test clean repl
+.PHONY: all build run clean repl
 
 STACK := stack
 TEST_HS := test/Test.hs
@@ -13,8 +13,6 @@ build:
 # Ejecuta el binario (compila si es necesario)
 run: build
 	./$(OUT)
-
-test: run
 
 # Arranca GHCi con src en el path
 repl:

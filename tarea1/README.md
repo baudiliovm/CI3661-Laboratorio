@@ -11,13 +11,11 @@ Proyecto (raíz)
 ├─ Makefile                       # tareas de compilación / ejecución
 ├─ package.yaml                   # configuración de Stack/Cabal
 ├─ stack.yaml
-├─ tarea1.cabal
 ├─ src/
 │  ├─ Tarea1.hs                   # implementaciones de la tarea
 │  └─ Main.hs                      # (opcional) ejecutable
 ├─ test/
 │  └─ Test.hs                      # pruebas unitarias (Test.HUnit)
-├─ .stack-work/                    # artefactos generados por Stack (no tocar)
 └─ README.md                       # este archivo
 ```
 
@@ -31,17 +29,8 @@ Abre una terminal y sitúate en el directorio del proyecto:
 # Compilar:
 make
 
-# Compilar y ejecutar tests:
+# Ejecutar tests:
 make run
-
-# Ejecutar el binario ya compilado:
-./Test
-
-# Abrir REPL (GHCi) con `src` en el path:
-make repl
-
-# Limpiar artefactos:
-make clean
 ```
 
 ### Usando Stack directamente
