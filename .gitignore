@@ -1,0 +1,55 @@
+# .gitignore for Haskell projects using Stack
+
+# Stack build directory
+.stack-work/
+*.lock
+
+# Cabal build artifacts (if you ever use cabal)
+dist/
+dist-*/
+dist-newstyle/
+cabal.sandbox.config
+cabal.project.local
+
+# GHC environment files
+.ghc.environment.*
+
+# Haskell Language Server / HIE files
+.hie/
+*.hie
+*.hie.*
+.hie-*
+.hie-bios
+
+# GHC build artefacts
+*.hi
+*.o
+*.dyn_hi
+*.dyn_o
+*.prof
+
+# GHCi history
+.ghci_history
+
+# Generated docs
+doc/
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*~
+.project
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Misc
+tags
+
+# zip
+*.zip
+*.tar.gz
+*.tar.xz

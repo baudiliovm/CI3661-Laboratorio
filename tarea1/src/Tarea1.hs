@@ -5,6 +5,7 @@
 -------------------------------------------------------------------------------
 
 module Tarea1 where
+import Data.Char (isDigit, toUpper)
 
 -------------------------------------------------------------------------------
 -- Problema 1: Palíndromo
@@ -14,7 +15,11 @@ module Tarea1 where
 -- (se lee igual al derecho y al revés). La función debe devolver un simple
 -- valor booleano (True o False). Implementa esto usando recursión explícita.
 esPalindromo :: String -> Bool
-esPalindromo s = undefined
+esPalindromo [] = True
+esPalindromo [_] = True
+esPalindromo (x:xs)
+  | x == last xs = esPalindromo (init xs)
+  | otherwise    = False
 
 -------------------------------------------------------------------------------
 -- Problema 2: Producto de Elementos Pares en una Lista
@@ -25,7 +30,10 @@ esPalindromo s = undefined
 -- de números enteros, pero solo incluyendo aquellos elementos que son pares.
 -- La función debe devolver 1 si la lista está vacía o no contiene números pares.
 productoParesRec :: [Integer] -> Integer
-productoParesRec xs = undefined
+productoParesRec [] = 1
+productoParesRec (x:xs)
+  | even x    = x * productoParesRec xs
+  | otherwise = productoParesRec xs
 
 -------------------------------------------------------------------------------
 -- Problema 3: Parseo Condicional con Either
@@ -36,8 +44,27 @@ productoParesRec xs = undefined
 -- devuelve Right Int. Si la conversión falla (porque la cadena no es puramente
 -- numérica), devuelve Left String con la cadena original transformada a mayúsculas.
 -- Nota: Necesitarás funciones auxiliares para el parseo seguro y la conversión a mayúsculas.
+
 parsearCondicional :: [String] -> [Either String Int]
-parsearCondicional ss = undefined
+parsearCondicional [] = []
+parsearCondicional (s:ss) =
+  case parseInt s of
+    Just n  -> Right n : parsearCondicional ss
+    Nothing -> Left (toMayusculas s) : parsearCondicional ss
+
+-- Auxiliar: intenta convertir una cadena a Int de forma segura
+parseInt :: String -> Maybe Int
+parseInt "" = Nothing
+parseInt ('-':xs)
+  | all isDigit xs && xs /= "" = Just (read ('-':xs))
+  | otherwise = Nothing
+parseInt xs
+  | all isDigit xs = Just (read xs)
+  | otherwise      = Nothing
+
+-- Auxiliar: convierte una cadena a mayúsculas
+toMayusculas :: String -> String
+toMayusculas = map toUpper
 
 -------------------------------------------------------------------------------
 -- Problema 4: Suma Acumulada Condicional
@@ -48,7 +75,7 @@ parsearCondicional ss = undefined
 -- que son mayores que el umbral, y luego calcular la suma de los números
 -- filtrados utilizando una operación de plegado (fold).
 sumaAcumuladaCondicional :: Float -> [Float] -> Float
-sumaAcumuladaCondicional umbral xs = undefined
+sumaAcumuladaCondicional umbral xs = foldr (\x acc -> if x > umbral then x + acc else acc) 0 xs
 
 -------------------------------------------------------------------------------
 -- Problema 5: Generación de Coordenadas Impares
@@ -59,7 +86,7 @@ sumaAcumuladaCondicional umbral xs = undefined
 -- suma de x e y (x+y) es un número impar. Utiliza Listas por Comprensión para
 -- la implementación.
 coordenadasImpares :: Int -> [(Int, Int)]
-coordenadasImpares n = undefined
+coordenadasImpares n = [(x, y) | x <- [1..n], y <- [1..n], odd (x + y)]
 
 -------------------------------------------------------------------------------
 -- Problema 6: Descomposición Segura de Lista
@@ -70,6 +97,7 @@ coordenadasImpares n = undefined
 -- Si la lista está vacía, devuelve Nothing. Si la lista no está vacía,
 -- devuelve Just con una tupla que contiene el primer elemento y el resto de la lista.
 descomponerListaSegura :: [a] -> Maybe (a, [a])
-descomponerListaSegura xs = undefined
+descomponerListaSegura [] = Nothing
+descomponerListaSegura (x:xs) = Just (x, xs)
 
 -------------------------------------------------------------------------------
