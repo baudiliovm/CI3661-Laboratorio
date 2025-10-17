@@ -20,4 +20,4 @@ repl:
 
 # Limpia artefactos
 clean:
-	rm -f $(OUT) *.o *.hi src/*.o src/*.hi test/*.o test/*.hi
+	rm -f $(OUT) *.o *.hi src/*.o src/*.hi test/*.o test/*.hi *.cabal
