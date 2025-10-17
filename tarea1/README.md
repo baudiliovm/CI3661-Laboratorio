@@ -1,5 +1,4 @@
-# Tarea1 — Laboratorio de Lenguajes de Programación I
-
+# Tarea1
 ## Resumen
 
 Proyecto con la solución de la "Tarea 1" (implementaciones en Haskell) y pruebas unitarias con HUnit.
